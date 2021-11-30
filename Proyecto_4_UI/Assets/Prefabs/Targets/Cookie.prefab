@@ -109,3 +109,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1870633a95137294390bf1d4f8ce6003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManagerScript: {fileID: 0}
+  explosion: {fileID: 2852413659578719189, guid: add0094915541482eba1289c3174a5ca, type: 3}
