@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
@@ -18,11 +19,12 @@ public class GameManager : MonoBehaviour
     public List<Vector3> targetPositions;
     public TextMeshProUGUI scoreText;
     public int score = 0;
-    public TextMeshProUGUI gameOverText;
+    public GameObject gameOverPanel;
     public TextMeshProUGUI liveText;
     public int live = 3;
     public int missTarget;
     public int totalmisses = 3;
+    
     
 
 
@@ -32,7 +34,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine("SpawnRandomTarget");
         score = 0;
         live = 3;
-        gameOverText.gameObject.SetActive(false);
+        gameOverPanel.gameObject.SetActive(false);
         
     }
 
@@ -41,8 +43,9 @@ public class GameManager : MonoBehaviour
     {
         scoreText.text = $"Score: {score}";
         if (gameOver)
-        { gameOverText.gameObject.SetActive(true); }
+        { gameOverPanel.gameObject.SetActive(true); }
         liveText.text = $"Lives: X {live}";
+
 
 
     }
@@ -70,5 +73,9 @@ public class GameManager : MonoBehaviour
         }
     }
   
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
        
 }// para llamar corutina "StartCoroutine"
